@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "f98ad9be883a93262db6e136880d7ee8"
+name = "store-product"
+handle = "store-product-2"
+application_url = "https://nearly-fell-robbie-registered.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "appproduct.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://nearly-fell-robbie-registered.trycloudflare.com/auth/callback",
+  "https://nearly-fell-robbie-registered.trycloudflare.com/auth/shopify/callback",
+  "https://nearly-fell-robbie-registered.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[pos]
+embedded = false
